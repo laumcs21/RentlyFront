@@ -1,0 +1,48 @@
+@use '@angular/material' as mat; /* ← PRIMERA línea, sin nada antes */
+
+/* 1) Tema base mínimo (solo para habilitar Material) */
+$rently-base: mat.define-theme((
+  color: ( theme-type: light )
+));
+
+/* 2) Aplica el tema base a todos los componentes */
+@include mat.all-component-themes($rently-base);
+
+/* 3) Sobrescribe los design tokens (CSS variables) con TU paleta Rently */
+:root {
+  /* Primario — Spanish Orange */
+  --md-sys-color-primary:               #ED6A24;
+  --md-sys-color-on-primary:            #FFFFFF;
+  --md-sys-color-primary-container:     #FFD7BF;
+  --md-sys-color-on-primary-container:  #3D1600;
+
+  /* Acento — Air Force Blue */
+  --md-sys-color-secondary:             #6193B0;
+  --md-sys-color-on-secondary:          #FFFFFF;
+  --md-sys-color-secondary-container:   #D5E7F2;
+  --md-sys-color-on-secondary-container:#0E2A3A;
+
+  /* Terciario — Lapis Lazuli */
+  --md-sys-color-tertiary:              #256087;
+  --md-sys-color-on-tertiary:           #FFFFFF;
+  --md-sys-color-tertiary-container:    #CBE3F3;
+  --md-sys-color-on-tertiary-container: #072233;
+
+  /* Warn (ajústalo si tienes uno propio) */
+  --md-sys-color-error:                 #D32F2F;
+  --md-sys-color-on-error:              #FFFFFF;
+
+  /* Fondo y texto global */
+  --md-sys-color-background:            #ECF0F1;
+  --md-sys-color-on-background:         #232429;
+  --md-sys-color-surface:               #FFFFFF;
+  --md-sys-color-on-surface:            #232429;
+}
+
+/* (Opcional) forzar fondo global con tus tokens */
+html, body {
+  background: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+}
+
+

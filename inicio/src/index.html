@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RENTLY</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-family: system-ui, Arial; padding: 24px; }
+      #index-ok { padding: 12px; border: 2px dashed #ed6a24; background:#fff3e6 }
+    </style>
+  </head>
+  <body>
+    <div id="app-mount"></div>
+    <app-root></app-root>
+
+    <script>
+      window.onerror = function(msg, src, line, col, err){
+        const pre = document.createElement('pre');
+        pre.textContent = "[window.onerror] " + msg + "\n" + (err && err.stack || "");
+        pre.style.background = "#fee";
+        pre.style.padding = "12px";
+        document.body.appendChild(pre);
+      };
+      console.log("[INDEX] cargado");
+    </script>
+  </body>
+</html>
