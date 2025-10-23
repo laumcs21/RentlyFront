@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HomeHero } from '../ui/organisms/home-hero/home-hero';
+import { HomeHero } from '../organisms/home-hero/home-hero';
 
 @Component({
   selector: 'app-home',

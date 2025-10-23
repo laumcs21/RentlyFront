@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthForm } from '../ui/organisms/auth-form/auth-form';
+import { AuthForm } from '../organisms/auth-form/auth-form';
 
 @Component({
   selector: 'app-login',
