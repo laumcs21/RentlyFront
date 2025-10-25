@@ -8,14 +8,6 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [RouterOutlet, MatToolbarModule, MatButtonModule],
   template: `
-    <!-- BARRA SUPERIOR -->
-    <mat-toolbar color="primary">
-      <span style="font-weight:600">Rently</span>
-      <span style="flex:1 1 auto"></span>
-      <button mat-button routerLink="/">Inicio</button>
-      <button mat-button routerLink="/login">Login</button>
-    </mat-toolbar>
-
     <!-- CONTENEDOR PRINCIPAL -->
     <div class="container">
       <router-outlet></router-outlet>

@@ -1,1 +1,52 @@
 @use 'styles/rently-theme';
+
+:root{
+  --radius: 12px;
+  --border: #e6e7e9;
+  --text-weak: #7d828a;
+
+  /* Paleta naranja */
+  --orange-500:#ff6a00;
+  --orange-600:#e85f00;
+  --orange-100:#fff4eb;
+}
+
+/* Botón base */
+.btn{
+  height:48px; padding:0 18px; border-radius: calc(var(--radius) + 4px);
+  border:1px solid var(--border); background:#fff; font-weight:600;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+}
+
+/* CTA naranja (solo donde lo uses) */
+.btn--cta{ background: var(--orange-500); color:#fff; border-color:transparent; }
+.btn--cta:hover{ background: var(--orange-600); }
+
+/* Chip “servicio” */
+.chip{
+  font-size:13px; padding:6px 10px; border:1px solid var(--border);
+  border-radius:999px; background:#fff; cursor:pointer;
+}
+.chip.is-active{ border-color:var(--orange-500); background:var(--orange-100); color:var(--orange-600); }
+
+/* Campos con etiqueta */
+.field{ display:flex; flex-direction:column; gap:6px; }
+.field .label{ font-size:12px; color:var(--text-weak); }
+.field .input{
+  height:48px; background:#fff; border:1px solid var(--border);
+  border-radius:var(--radius); padding:0 12px; display:flex; align-items:center;
+}
+
+/* Grid de la franja de filtros */
+.filters{
+  display:grid;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr 0.6fr auto; /* ciudad | entrada | salida | adultos | botón */
+  gap:16px; align-items:end;
+}
+
+:root{ --mdc-theme-primary: #1976d2; }
+.mat-calendar-body-selected{ background:#1976d2!important; color:#fff!important; }
+.mat-calendar-body-in-range{ background:rgba(25,118,210,.15)!important; }
+.mat-mdc-form-field-icon-prefix .mat-icon,
+.mat-mdc-form-field-icon-suffix .mat-icon{ color:#1976d2; }
+

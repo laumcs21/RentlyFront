@@ -1,0 +1,19 @@
+.price-range{
+  width: 220px;
+  height: 6px;
+  appearance: none;
+  background: #ddd;
+  border-radius: 999px;
+  outline: none;
+}
+.price-range::-webkit-slider-thumb{
+  appearance: none;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #7c3aed; /* morado, cámbialo si quieres */
+  border: 0; cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(124,58,237,.15);
+}
+.price-range::-moz-range-thumb{
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #7c3aed; border: 0; cursor: pointer;
+}
