@@ -1,0 +1,37 @@
+.topbar{
+  position: relative;
+  display:flex; align-items:center;
+  height:56px; padding:0 12px; gap:12px;
+  background:#fff; border:1px solid #eee; border-radius:12px; margin-bottom:12px;
+  overflow: visible;
+}
+
+/* IZQUIERDA */
+.brand{ display:flex; gap:8px; align-items:center; text-decoration:none; color:#111; }
+.brand span{ font-weight:800; font-size:18px; }
+
+/* CENTRO */
+.center{
+  position:absolute; left:50%; transform:translateX(-50%);
+  display:flex; align-items:center; gap:4px;
+  pointer-events:auto; /* que sean clicables encima del toolbar */
+}
+.is-active{ background:#f5f5f5; border-radius:8px; }
+
+/* DERECHA */
+.right{ margin-left:auto; display:flex; align-items:center; gap:8px; }
+.orange.mat-mdc-raised-button{ background:#ff6a00; color:#fff; }
+.orange.mat-mdc-raised-button:hover{ background:#e85f00; }
+
+/* Consistencia tipográfica en todos los botones */
+.topbar .mat-mdc-button, .topbar .mat-mdc-raised-button{
+  --mdc-typography-button-font-size: 14px;
+  --mdc-typography-button-font-weight: 500;
+  border-radius: 999px;
+  padding-inline: 10px;
+}
+
+/* Responsive: oculta centro en móvil */
+@media (max-width: 900px){
+  .center{ display:none; }
+}

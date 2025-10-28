@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
-import { HomeHero } from '@organisms/home-hero/home-hero';
-import { AdvancedFilters } from '@organisms/advanced-filters/advanced-filters';
-import { FeaturedList } from '@organisms/featured-list/featured-list';
-import { Pagination } from '@molecules/pagination/pagination';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
-  imports: [HomeHero, AdvancedFilters, FeaturedList, Pagination],
   template: `
     <app-home-hero></app-home-hero>
 
@@ -19,7 +13,9 @@ import { Pagination } from '@molecules/pagination/pagination';
 
     <app-pagination [page]="page" [pages]="3" (change)="page=$event"></app-pagination>
   `,
+  standalone: false
 })
 export class HomePage {
   page = 2;
 }
+

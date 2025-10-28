@@ -1,0 +1,10 @@
+.mid {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .mid { display: none; }
+}

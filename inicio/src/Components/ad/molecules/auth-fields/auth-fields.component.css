@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  gap: 14px;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* opcional: para que un campo ocupe todo el ancho */
+/* .grid ::ng-deep .span-2 { grid-column: 1 / -1; } */

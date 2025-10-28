@@ -1,0 +1,33 @@
+<mat-toolbar class="topbar">
+  <a class="brand" routerLink="/">
+    <mat-icon fontSet="material-symbols-outlined">home</mat-icon>
+    <span>Rently</span>
+  </a>
+
+  <nav class="center">
+    <a mat-button routerLink="/explorar" routerLinkActive="is-active">
+      <mat-icon fontSet="material-symbols-outlined">travel_explore</mat-icon>
+      Explorar
+    </a>
+    <a mat-button routerLink="/propiedades" routerLinkActive="is-active">
+      <mat-icon fontSet="material-symbols-outlined">villa</mat-icon>
+      Propiedades
+    </a>
+    <a mat-button routerLink="/favoritos" routerLinkActive="is-active">
+      <mat-icon fontSet="material-symbols-outlined">favorite</mat-icon>
+      Favoritos
+    </a>
+    <a mat-button routerLink="/ayuda" routerLinkActive="is-active">
+      <mat-icon fontSet="material-symbols-outlined">help</mat-icon>
+      Ayuda
+    </a>
+  </nav>
+
+  <div class="right">
+    <a mat-button routerLink="/register">Registrarse</a>
+    <button mat-raised-button class="orange" routerLink="/login">
+      <mat-icon fontSet="material-symbols-outlined">login</mat-icon>
+      Iniciar sesión
+    </button>
+  </div>
+</mat-toolbar>

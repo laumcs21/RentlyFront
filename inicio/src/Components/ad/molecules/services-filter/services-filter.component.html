@@ -1,0 +1,9 @@
+<label>SERVICIOS</label>
+<div class="chips">
+  <button
+    *ngFor="let s of services"
+    (click)="toggle(s)"
+    [class.active]="selected.has(s)">
+    {{ s }}
+  </button>
+</div>

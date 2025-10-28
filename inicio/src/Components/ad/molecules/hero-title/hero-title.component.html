@@ -1,0 +1,7 @@
+<h1 class="h1">{{ title }}</h1>
+<p class="sub">{{ subtitle }}</p>
+
+<div class="chips">
+  <!-- app-chip es un átomo: debe estar exportado por AdAtomsModule -->
+  <app-chip *ngFor="let t of tags" [text]="t"></app-chip>
+</div>

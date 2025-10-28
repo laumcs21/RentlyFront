@@ -1,0 +1,7 @@
+<mat-form-field appearance="outline" class="w100">
+  <mat-label>{{ label }}</mat-label>
+  <mat-select [formControl]="control">
+    <mat-option *ngFor="let o of options" [value]="o.value">{{ o.label }}</mat-option>
+  </mat-select>
+  <mat-error *ngIf="control.errors?.['required']">Obligatorio</mat-error>
+</mat-form-field>

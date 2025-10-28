@@ -1,0 +1,15 @@
+<section class="wrap">
+  <div class="head">
+    <div>
+      <h3>Alojamientos destacados</h3>
+      <small>Resultados según tus filtros.</small>
+    </div>
+    <ad-cta-button label="Ver todos"></ad-cta-button>
+  </div>
+
+  <div class="grid">
+    <!-- Ajusta el selector al real de tu card:
+         si tu card es 'ad-property-card' déjalo así; si es 'app-property-card', cámbialo -->
+    <ad-property-card *ngFor="let p of items" [p]="p"></ad-property-card>
+  </div>
+</section>
