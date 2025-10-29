@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-guest-stepper',
+  selector: 'ad-guest-stepper',
   standalone: false,
   templateUrl: './app-guest-stepper.component.html',
   styleUrls: ['./app-guest-stepper.component.css'],

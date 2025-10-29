@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule }  from '@angular/material/button';
 
 import { App } from './app';
+import { AppRoutingModule } from './app-routing.module';
 import { MainLayout } from './layout/main-layout.component';
 
 import { AdAtomsModule }      from '@components/ad/atoms/ad-atoms.module';
@@ -21,6 +22,7 @@ import { AdPagesModule }      from '@components/ad/pages/ad-pages.module';
     BrowserAnimationsModule,
     RouterModule.forRoot([]),
     MatToolbarModule, MatButtonModule,
+    AppRoutingModule,
     AdAtomsModule, AdMoleculesModule, AdOrganismsModule, AdPagesModule
   ],
   bootstrap: [App]

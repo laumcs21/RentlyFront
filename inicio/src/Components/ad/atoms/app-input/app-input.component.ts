@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-input',
+  selector: 'ad-input',
   templateUrl: './app-input.component.html',
   styleUrls: ['./app-input.component.css'],
   standalone: false

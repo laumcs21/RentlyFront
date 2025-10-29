@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-date-field',
+  selector: 'ad-date-field',
   standalone: false,
   templateUrl: './app-date-field.component.html',
   styleUrls: ['./app-date-field.component.css'],

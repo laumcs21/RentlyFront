@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-badge',
+  selector: 'ad-badge',
   standalone: false,
   templateUrl: './app-badge.component.html',
   styleUrls: ['./app-badge.component.css']

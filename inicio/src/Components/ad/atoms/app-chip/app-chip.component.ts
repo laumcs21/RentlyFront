@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-chip',
+  selector: 'ad-chip',
   standalone: false,
   templateUrl: './app-chip.component.html',
   styleUrls: ['./app-chip.component.css'],

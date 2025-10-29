@@ -15,7 +15,7 @@ type RegForm = FormGroup<{
 }>;
 
 @Component({
-  selector: 'app-register-form',
+  selector: 'ad-register-form',
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.css'],
   standalone: false

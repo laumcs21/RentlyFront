@@ -4,17 +4,41 @@
       <h3>Alojamientos destacados</h3>
       <small>Resultados según tus filtros.</small>
     </div>
-
-    <!-- Botón naranja (átomo) -->
-    <ad-cta-button label="Ver todos"></ad-cta-button>
-    <!-- Si quieres navegar:
-    <ad-cta-button label="Ver todos" [routerLink]="'/propiedades'"></ad-cta-button>
-    -->
   </div>
 
-  <div class="grid">
-    <!-- Ajusta el selector al real de tu card:
-         si tu card es 'ad-property-card' déjalo así; si es 'app-property-card', cámbialo -->
-    <ad-property-card *ngFor="let p of items" [p]="p"></ad-property-card>
+<section class="filters">
+  <!-- Columna IZQ: Precio -->
+  <div class="price">
+      <h4>Precio por noche</h4>
+    <div class="row">  
+      <span class="min">${{ minPrice | number }}</span>
+      <input
+        type="range"
+        [min]="minPrice"
+        [max]="maxPrice"
+        [value]="maxPriceCtrl.value"
+        (input)="setPrice(($any($event.target)).valueAsNumber)"      />
+
+    <span class="max">${{ maxPriceCtrl.value | number }}</span>
+    </div>
+  </div>
+
+  <!-- Columna CENTRO: Servicios (centrados) -->
+  <div class="services">
+    <h4>SERVICIOS</h4>
+    <div class="chips">
+      <button
+        class="chip"
+        *ngFor="let s of servicesOptions"
+        [class.active]="servicesCtrl.value.includes(s)"
+        (click)="toggleService(s)">
+        {{ s }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Columna DER: Botón aplicar, pegado al bloque de filtros -->
+  <div class="apply">
+    <ad-cta-button label="Aplicar" (click)="apply()"></ad-cta-button>
   </div>
 </section>

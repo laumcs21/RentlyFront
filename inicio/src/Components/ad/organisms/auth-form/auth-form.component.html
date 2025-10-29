@@ -1,20 +1,17 @@
 <form [formGroup]="form" (ngSubmit)="submit()" class="wrap">
   <h2 class="title">Iniciar sesión</h2>
-
-  <!-- OJO: app-form-row actualmente no enlaza formControl; solo muestra el input visual.
-       Si quieres que el formulario sea reactivo, luego cambiamos a <ad-text-input [control]="form.controls.email"> -->
-  <app-form-row
+  <ad-form-row
     label="Correo"
     [placeholder]="'tucorreo@dominio.com'"
     [type]="'email'"
     [error]="emailErr">
-  </app-form-row>
+  </ad-form-row>
 
-  <app-form-row
+  <ad-form-row
     label="Contraseña"
     [type]="'password'"
     [error]="pwdErr">
-  </app-form-row>
+  </ad-form-row>
 
-  <app-button label="Entrar" color="primary"></app-button>
+  <ad-button label="Entrar" color="primary"></ad-button>
 </form>

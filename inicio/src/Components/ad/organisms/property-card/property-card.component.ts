@@ -11,3 +11,4 @@ import { Property } from '@models/property';
 export class PropertyCard {
   @Input({ required: true }) p!: Property;
 }
+

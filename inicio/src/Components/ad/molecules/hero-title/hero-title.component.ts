@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-hero-title',
+  selector: 'ad-hero-title',
   templateUrl: './hero-title.component.html',
   styleUrls: ['./hero-title.component.css'],
   standalone: false

@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'ad-home-page',
   template: `
-    <app-home-hero></app-home-hero>
+    <ad-home-hero></ad-home-hero>
 
     <div style="margin:10px 0 6px">
-      <app-advanced-filters></app-advanced-filters>
+      <ad-advanced-filters></ad-advanced-filters>
     </div>
 
-    <app-featured-list></app-featured-list>
+    <ad-featured-list></ad-featured-list>
 
-    <app-pagination [page]="page" [pages]="3" (change)="page=$event"></app-pagination>
+    <ad-pagination [page]="page" [pages]="3" (change)="page = $event"></ad-pagination>
   `,
-  standalone: false
+  standalone: false,
 })
 export class HomePage {
   page = 2;
 }
-

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-form-row',
+  selector: 'ad-form-row',
   templateUrl: './form-row.component.html',
   styleUrls: ['./form-row.component.css'],
   standalone: false

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-text-field',
+  selector: 'ad-text-field',
   standalone: false,
   templateUrl: './app-text-field.component.html',
   styleUrls: ['./app-text-field.component.css'],

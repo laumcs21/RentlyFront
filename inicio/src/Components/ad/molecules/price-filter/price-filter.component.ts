@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'ad-price-filter',
@@ -7,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   standalone: false
 })
 export class PriceFilter {
+  @Input({ required: true }) control!: FormControl<number>;
   @Input() value = 250;
   @Output() valueChange = new EventEmitter<number>();
 
