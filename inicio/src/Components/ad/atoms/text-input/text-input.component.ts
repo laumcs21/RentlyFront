@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation  } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ad-text-input',
+  encapsulation: ViewEncapsulation.None,
   standalone: false,
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.css'],

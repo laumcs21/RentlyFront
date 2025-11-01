@@ -15,6 +15,10 @@ import { AdMoleculesModule }  from '@components/ad/molecules/ad-molecules.module
 import { AdOrganismsModule }  from '@components/ad/organisms/ad-organisms.module';
 import { AdPagesModule }      from '@components/ad/pages/ad-pages.module';
 
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../interceptors/auth.interceptor';
+
 @NgModule({
   declarations: [App, MainLayout],
   imports: [
@@ -24,6 +28,13 @@ import { AdPagesModule }      from '@components/ad/pages/ad-pages.module';
     MatToolbarModule, MatButtonModule,
     AppRoutingModule,
     AdAtomsModule, AdMoleculesModule, AdOrganismsModule, AdPagesModule
+  ],
+    providers: [
+    provideHttpClient(
+      withInterceptorsFromDi(),
+    ),
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+
   ],
   bootstrap: [App]
 })

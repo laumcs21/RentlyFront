@@ -45,4 +45,13 @@ html, body {
   color: var(--md-sys-color-on-background);
 }
 
+.mat-mdc-form-field .mat-mdc-form-field-icon-prefix{
+  border-right: 0 !important;          /* << mata el divisor */
+}
+
+/* (opcional) un poco de espacio entre icono y texto */
+.mat-mdc-form-field .mat-mdc-form-field-icon-prefix .mat-icon{
+  margin-right: 8px;
+}
+
 

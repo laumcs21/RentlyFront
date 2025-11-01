@@ -9,24 +9,17 @@ import { FormControl } from '@angular/forms';
 })
 export class ImageInputComponent {
   @Input({ required: true }) label!: string;
-  @Input({ required: true }) control!: FormControl<any>; // si prefieres typed: FormControl<string | null>
-  @Output() fileSelected = new EventEmitter<File>();
+  @Input() control!: FormControl<any>; // si prefieres typed: FormControl<string | null>
+@Output() fileSelected = new EventEmitter<File | undefined>();
 
-  preview: string | null = null;
+preview: string | null = null;
 
-  onFile(ev: Event) {
-    const file = (ev.target as HTMLInputElement).files?.[0];
-    if (!file) return;
-
-    this.fileSelected.emit(file);
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.preview = reader.result as string;
-      this.control.setValue(this.preview);   // base64
-      this.control.markAsDirty();
-      this.control.markAsTouched();
-    };
-    reader.readAsDataURL(file);
-  }
+onFile(ev: Event){
+  const file = (ev.target as HTMLInputElement).files?.[0];
+  if(!file) { this.preview = null; this.fileSelected.emit(undefined); return; }
+  this.fileSelected.emit(file);
+  const reader = new FileReader();
+  reader.onload = () => { this.preview = reader.result as string; };
+  reader.readAsDataURL(file);
+}
 }

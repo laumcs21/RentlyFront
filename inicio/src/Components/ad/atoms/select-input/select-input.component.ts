@@ -10,7 +10,7 @@ export interface SelectOption { value: string; label: string; }
   styleUrls: ['./select-input.component.css'],
 })
 export class SelectInputComponent {
-  @Input({ required: true }) label!: string;
-  @Input({ required: true }) control!: FormControl<any>; // si prefieres typed: FormControl<string | null>
-  @Input({ required: true }) options!: SelectOption[];
+  @Input() label = '';
+  @Input() options: SelectOption[] = [];
+  @Input({ required: true }) control!: FormControl<any>;
 }

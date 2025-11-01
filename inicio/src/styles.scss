@@ -233,3 +233,139 @@
 .rounded-xl { border-radius: var(--radius-xl); }
 .shadow-card { box-shadow: 0 2px 10px rgba(0,0,0,.06); }
 .border-muted { border: 1px solid var(--border); }
+
+.mat-mdc-snack-bar-container.snack-ok .mdc-snackbar__surface{
+  background:#22c55e; color:#fff;
+}
+.mat-mdc-snack-bar-container.snack-error .mdc-snackbar__surface{
+  background:#ef4444; color:#fff;
+}
+
+/* ==== QUITAR LA LÍNEA ENTRE ICONO (matPrefix) E INPUT, EN TODOS ==== */
+
+/* 1) Si Material crea un “divider” como nodo */
+.mat-mdc-form-field .mat-mdc-form-field-divider{
+  display: none !important;
+}
+
+/* 2) Si la raya es un pseudo-elemento del contenedor del prefix */
+.mat-mdc-form-field .mat-mdc-form-field-icon-prefix::before,
+.mat-mdc-form-field .mat-mdc-form-field-icon-prefix::after{
+  content: none !important;
+  display: none !important;
+}
+
+/* 3) Si la raya es un border-right del contenedor del prefix */
+.mat-mdc-form-field .mat-mdc-form-field-icon-prefix{
+  border-right: 0 !important;
+}
+
+/* 4) “Blindaje” extra: anula cualquier borde que le ponga Tailwind a ::before/::after */
+.mat-mdc-form-field .mat-mdc-form-field-icon-prefix,
+.mat-mdc-form-field .mat-mdc-form-field-icon-prefix::before,
+.mat-mdc-form-field .mat-mdc-form-field-icon-prefix::after{
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 5) Para selects/datepickers que usan text-prefix (no icon) */
+.mat-mdc-form-field .mat-mdc-form-field-text-prefix,
+.mat-mdc-form-field .mat-mdc-form-field-text-prefix::before,
+.mat-mdc-form-field .mat-mdc-form-field-text-prefix::after{
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  content: none !important;
+}
+
+/* 6) Y por si tu build usa el token nuevo de Material: ponlo en cero globalmente */
+:root{
+  --mat-form-field-container-text-prefix-suffix-divider-width: 0 !important;
+  --mat-form-field-container-text-prefix-suffix-divider-color: transparent !important;
+}
+
+/* Quitar el divisor vertical entre prefix/suffix e input en TODOS los mat-form-field outline */
+.mdc-text-field--outlined .mat-mdc-form-field-icon-prefix,
+.mdc-text-field--outlined .mat-mdc-form-field-text-prefix {
+  border-right: 0 !important;
+}
+
+.mdc-text-field--outlined .mat-mdc-form-field-divider {
+  display: none !important;
+}
+
+/* 1) Quita cualquier divisor del prefix/suffix (por si acaso) */
+.mdc-text-field--outlined .mat-mdc-form-field-icon-prefix,
+.mdc-text-field--outlined .mat-mdc-form-field-text-prefix {
+  border-right: 0 !important;
+}
+.mdc-text-field--outlined .mat-mdc-form-field-divider {
+  display: none !important;
+}
+
+/* 2) Unifica el color del borde (ya lo probaste) */
+.mdc-notched-outline__leading,
+.mdc-notched-outline__notch,
+.mdc-notched-outline__trailing {
+  border-color: var(--border) !important; /* #e6e7e9 en tu tema */
+}
+
+/* 3) Elimina visualmente la “costura” entre el leading y el notch */
+.mdc-notched-outline__leading {
+  border-right-color: transparent !important; /* oculta el borde que genera la unión */
+}
+.mdc-notched-outline__notch {
+  /* mueve 1px para cubrir la unión; evita hueco */
+  margin-left: -1px !important;
+  border-left-color: var(--border) !important;
+}
+
+/* (Opcional) si usas RTL también */
+[dir="rtl"] .mdc-notched-outline__trailing { border-left-color: transparent !important; }
+[dir="rtl"] .mdc-notched-outline__notch    { margin-right: -1px !important; border-right-color: var(--border) !important; }
+
+.mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline__leading { border-right-color: transparent !important; }
+.mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline__notch   { margin-left: -1px !important; }
+
+
+/* ==== FIX puntual para el formulario de registro ==== */
+/* Aplica solo dentro del organismo <ad-auth-fields> para no afectar el resto */
+
+ad-auth-fields mat-form-field {
+  /* Si tu versión de Material respeta el token, esto ya quita el divisor */
+  --mat-form-field-container-text-prefix-suffix-divider-width: 0;
+}
+
+/* 1) Eliminar la línea entre el icono (prefix) y el texto */
+ad-auth-fields mat-form-field .mat-mdc-form-field-divider { 
+  display: none !important; 
+}
+ad-auth-fields mat-form-field .mat-mdc-form-field-icon-prefix,
+ad-auth-fields mat-form-field .mat-mdc-form-field-text-prefix {
+  border-right: 0 !important;
+}
+ad-auth-fields mat-form-field .mat-mdc-form-field-icon-prefix::before,
+ad-auth-fields mat-form-field .mat-mdc-form-field-icon-prefix::after,
+ad-auth-fields mat-form-field .mat-mdc-form-field-text-prefix::before,
+ad-auth-fields mat-form-field .mat-mdc-form-field-text-prefix::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* 2) Arreglar la “costura” del notched outline SIN cambiar el color del borde */
+ad-auth-fields mat-form-field .mdc-notched-outline__leading {
+  border-right-color: transparent !important;   /* oculta la unión */
+}
+ad-auth-fields mat-form-field .mdc-notched-outline__notch {
+  margin-left: -1px !important;                 /* solapa 1px la unión */
+  /* no tocamos border-color para respetar tu tema */
+}
+
+/* 3) Mantener el fix también en foco */
+ad-auth-fields mat-form-field.mat-focused .mdc-notched-outline__leading {
+  border-right-color: transparent !important;
+}
+ad-auth-fields mat-form-field.mat-focused .mdc-notched-outline__notch {
+  margin-left: -1px !important;
+}

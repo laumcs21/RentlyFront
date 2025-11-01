@@ -1,0 +1,14 @@
+{
+  "/auth": {
+    "target": "http://localhost:8080/api",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+    },
+  "/usuarios": {
+    "target": "http://localhost:8080/api",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+  }
+}

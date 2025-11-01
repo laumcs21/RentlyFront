@@ -15,3 +15,16 @@
 .hint a:visited{
   color: #256087;
 }
+
+/* Quita el divisor vertical entre icono y texto */
+:host ::ng-deep [data-no-prefix-divider] .mat-mdc-form-field-divider{
+  display: none !important;
+}
+
+/* (opcional) un poco de aire entre icono y texto */
+:host ::ng-deep [data-no-prefix-divider] .mat-mdc-form-field-icon-prefix .mat-icon{
+  margin-right: 8px;
+}
+
+
+

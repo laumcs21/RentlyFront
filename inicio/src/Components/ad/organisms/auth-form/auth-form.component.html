@@ -1,17 +1,20 @@
-<form [formGroup]="form" (ngSubmit)="submit()" class="wrap">
-  <h2 class="title">Iniciar sesión</h2>
-  <ad-form-row
+<form [formGroup]="form" (ngSubmit)="submit()" class="login-form">
+  <h2>Iniciar sesión</h2>
+
+  <!-- ✅ ahora los controles son FormControl<string> -->
+  <ad-text-input
     label="Correo"
-    [placeholder]="'tucorreo@dominio.com'"
-    [type]="'email'"
-    [error]="emailErr">
-  </ad-form-row>
+    type="email"
+    [control]="form.controls.email">
+  </ad-text-input>
+  <div class="err" *ngIf="emailErr">{{ emailErr }}</div>
 
-  <ad-form-row
+  <ad-password-input
     label="Contraseña"
-    [type]="'password'"
-    [error]="pwdErr">
-  </ad-form-row>
+    [control]="form.controls.password">
+  </ad-password-input>
+  <div class="err" *ngIf="pwdErr">{{ pwdErr }}</div>
 
-  <ad-button label="Entrar" color="primary"></ad-button>
+  <ad-cta-button label="Entrar" [isDisabled]="form.invalid"></ad-cta-button>
 </form>
+
