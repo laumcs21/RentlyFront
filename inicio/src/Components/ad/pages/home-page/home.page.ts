@@ -1,20 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable, map } from 'rxjs';
+import { Router } from '@angular/router';
+import { ListingsService } from '../../../../services/listings.service'; 
+import { ListingCardDTO, ListingFilters } from '../../../../models/listing.models'; 
 
 @Component({
   selector: 'ad-home-page',
-  template: `
-    <ad-home-hero></ad-home-hero>
-
-    <div style="margin:10px 0 6px">
-      <ad-advanced-filters></ad-advanced-filters>
-    </div>
-
-    <ad-featured-list></ad-featured-list>
-
-    <ad-pagination [page]="page" [pages]="3" (change)="page = $event"></ad-pagination>
-  `,
-  standalone: false,
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.css'],
+  standalone: false
 })
-export class HomePage {
-  page = 2;
+export class HomePage implements OnInit {
+  page = 1;
+  cards$!: Observable<ListingCardDTO[]>;
+
+  constructor(private listings: ListingsService, private router: Router) {}
+
+  ngOnInit(): void {
+    const filters: ListingFilters = {};          
+    this.cards$ = this.listings.getFeatured(filters, 12).pipe(
+      map(list => list.map(x => ({
+        ...x,
+        portadaUrl: x.portadaUrl ?? x.imagenes?.[0] ?? 'assets/placeholder.webp'
+      })))
+    );
+  }
+
+  trackById = (_: number, item: ListingCardDTO) => item.id;
+
+  goToDetail(card: ListingCardDTO | number) {
+    const id = typeof card === 'number' ? card : card.id;
+    this.router.navigate(['/alojamientos', id]);
+  }
 }

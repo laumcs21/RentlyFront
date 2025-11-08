@@ -1,0 +1,23 @@
+<div class="card" (click)="onOpen()">
+  <div class="thumb"
+       [style.backgroundImage]="'url(' + (model?.portadaUrl || model?.imagenes?.[0] || 'assets/placeholder.webp') + ')'">
+  </div>
+
+  <div class="body">
+    <div class="title">{{ model?.titulo }}</div>
+    <div class="meta">
+      <span class="city">{{ model?.ciudad }}</span>
+      <span class="price">${{ model?.precioPorNoche | number:'1.0-0' }}</span>
+    </div>
+
+    <div class="chips" *ngIf="model?.servicios?.length">
+      <span class="chip" *ngFor="let s of (model?.servicios | slice:0:3)">{{ s }}</span>
+      <span class="chip more" *ngIf="(model?.servicios?.length || 0) > 3">
+        +{{ (model?.servicios?.length || 0) - 3 }}
+      </span>
+    </div>
+  </div>
+</div>
+
+
+

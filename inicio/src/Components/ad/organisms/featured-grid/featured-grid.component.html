@@ -1,0 +1,6 @@
+<div *ngIf="loading" class="muted">Cargando alojamientos...</div>
+<div *ngIf="!loading && !items.length" class="muted">Sin resultados</div>
+
+<div class="grid" *ngIf="items.length">
+  <ad-listing-card *ngFor="let it of items" [data]="it"></ad-listing-card>
+</div>

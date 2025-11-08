@@ -24,7 +24,6 @@ import { AuthInterceptor } from '../interceptors/auth.interceptor';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot([]),
     MatToolbarModule, MatButtonModule,
     AppRoutingModule,
     AdAtomsModule, AdMoleculesModule, AdOrganismsModule, AdPagesModule

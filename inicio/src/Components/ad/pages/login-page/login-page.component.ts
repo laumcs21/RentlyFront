@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../../../services/auth.service';
 import { LoginDto } from '../../../../models/auth.models';
+import { UsersService } from '../../../../services/users.service';  
 
 @Component({
   selector: 'ad-login-page',
@@ -10,20 +11,27 @@ import { LoginDto } from '../../../../models/auth.models';
   standalone: false
 })
 export class LoginPage {
-  constructor(private auth: AuthService, private snack: MatSnackBar, private router: Router) {}
+  constructor(private auth: AuthService, private snack: MatSnackBar, private router: Router, private users: UsersService) {}
 
-  onLogin(ev: { email: string; password: string }) {
+onLogin(ev: { email: string; password: string }) {
+  console.log('[LoginPage] onLogin', ev);
     const dto: LoginDto = { email: ev.email, password: ev.password }; // ⇦ cambia a contrasena si tu back lo pide
     this.auth.login(dto).subscribe({
       next: () => {
-        this.snack.open('✅ Sesión iniciada', 'OK', { duration: 2500 });
-        this.router.navigateByUrl('/'); // o /dashboard
+        this.users.getMe(true).subscribe({
+          next: (me) => {
+            if (me.rol === 'ANFITRION') {
+              this.router.navigateByUrl('/host');
+            } else {
+              this.router.navigateByUrl('/user/home');
+            }
+          },
+          error: () => this.router.navigateByUrl('/login') // fallback
+        });
       },
-      error: (e) => {
-        const msg = e?.error?.message || 'Credenciales inválidas';
-        this.snack.open(`⚠️ ${msg}`, 'Cerrar', { duration: 3500 });
-      }
+      error: () => this.snack.open('Credenciales inválidas', 'Cerrar', { duration: 3000 })
     });
+
   }
 }
 

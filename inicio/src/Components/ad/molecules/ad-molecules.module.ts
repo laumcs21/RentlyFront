@@ -20,6 +20,8 @@ import { HeroTitle }      from './hero-title/hero-title.component';
 import { NavCenter }      from './nav-center/nav-center.component';
 import { PriceFilter }    from './price-filter/price-filter.component';
 import { ServicesFilter } from './services-filter/services-filter.component';
+import { FeaturedFiltersComponent } from './featured-filters/featured-filters.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ServicesFilter } from './services-filter/services-filter.component';
     HeroTitle,
     NavCenter,
     PriceFilter,
-    ServicesFilter
+    ServicesFilter,
+    FeaturedFiltersComponent
   ],
   imports: [
     CommonModule, FormsModule, ReactiveFormsModule, RouterModule,
@@ -44,7 +47,8 @@ import { ServicesFilter } from './services-filter/services-filter.component';
     HeroTitle,
     NavCenter,
     PriceFilter,
-    ServicesFilter
+    ServicesFilter,
+    FeaturedFiltersComponent
   ]
 })
 export class AdMoleculesModule {}

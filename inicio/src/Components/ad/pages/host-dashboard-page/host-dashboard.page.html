@@ -1,0 +1,104 @@
+<ad-top-bar-user></ad-top-bar-user>
+
+<section class="host-wrap">
+  <div class="head" *ngIf="me$ | async as me">
+    <h1>Panel de anfitrión</h1>
+    <p class="sub">Hola, {{ me.nombre }}. Administra tus alojamientos y reservas.</p>
+  </div>
+
+  <!-- métricas -->
+  <div class="metrics">
+    <div class="metric">
+      <div class="label">Alojamientos</div>
+      <div class="value">{{ totalAlojamientos$ | async }}</div>
+      <div class="hint">publicados</div>
+    </div>
+    <div class="metric">
+      <div class="label">Ingresos estimados</div>
+      <div class="value">$ {{ (ingresosEstimados$ | async) | number:'1.0-0' }}</div>
+      <div class="hint">este mes</div>
+    </div>
+      <div class="metric action" routerLink="/host/reservas">
+      <div class="label">Reservas</div>
+      <div class="value plus">→</div>
+      <div class="hint">Ver todas</div>
+    </div>
+    <div class="metric action" (click)="publicar()">
+      <div class="label">Nuevo</div>
+      <div class="value plus">+</div>
+      <div class="hint">Publicar alojamiento</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Mis alojamientos</h2>
+
+  <div class="list" *ngIf="misAlojamientos$ | async as aloj; else empty">
+    <div class="item" *ngFor="let a of aloj">
+      <div
+        class="thumb"
+        [style.backgroundImage]="'url(' + (a.portadaUrl || a.imagenes?.[0] || 'assets/placeholder.webp') + ')'"
+      ></div>
+      <div class="info">
+        <div class="title">{{ a.titulo }}</div>
+        <div class="meta">{{ a.ciudad }} · $ {{ a.precioPorNoche | number:'1.0-0' }}</div>
+      </div>
+      <div class="actions">
+        <button
+          mat-raised-button
+          class="cta"
+          [routerLink]="['/host/alojamientos', a.id, 'editar']"
+          type="button"
+        >
+          Editar
+        </button>
+        <button mat-button class="reservas-btn" [routerLink]="['/host/reservas']">Reservas</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #empty>
+    <div class="empty">
+      Aún no tienes alojamientos publicados.
+      <button mat-raised-button color="primary" (click)="publicar()">Publicar ahora</button>
+    </div>
+  </ng-template>
+
+  <div class="reservas-block" *ngIf="me$ | async as me">
+    <h2 class="section-title">Reservas pendientes</h2>
+
+    <div *ngIf="reservasPendientes.length; else noPend">
+      <div class="reserva-item" *ngFor="let r of reservasPendientes">
+        <div class="res-info">
+          <div class="res-title">Reserva #{{ r.id }}</div>
+          <div class="res-meta">
+            {{ r.fechaInicio }} → {{ r.fechaFin }}
+            · Alojamiento: {{ r.alojamientoTitulo }}
+            · Usuario: {{ r.usuarioId }}
+          </div>
+        </div>
+        <div class="res-actions">
+          <button
+            mat-raised-button
+            class="cta"
+            type="button"
+            (click)="aprobarReserva(r.id, me.id)"
+          >
+            Aprobar
+          </button>
+          <button
+            mat-button
+            class="rechazar-btn"
+            type="button"
+            (click)="rechazarReserva(r.id, me.id)"
+          >
+            Rechazar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noPend>
+      <div class="empty">No hay reservas pendientes 👍</div>
+    </ng-template>
+  </div>
+</section>

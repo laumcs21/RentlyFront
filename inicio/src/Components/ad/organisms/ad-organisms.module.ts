@@ -14,6 +14,8 @@ import { MatSliderModule }     from '@angular/material/slider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule }       from '@angular/material/card';
+import { MatMenuModule }     from '@angular/material/menu';
+import { MatDividerModule }  from '@angular/material/divider';
 
 import { AdAtomsModule }      from '../atoms/ad-atoms.module';
 import { AdMoleculesModule }  from '../molecules/ad-molecules.module';
@@ -26,6 +28,9 @@ import { HomeHero }                from './home-hero/home-hero.component';
 import { TopBarComponent }         from './top-bar/top-bar.component';
 import { AuthForm }                from './auth-form/auth-form.component';
 import { RegisterFormComponent }   from './register-form/register-form.component';
+import { FeaturedGridComponent }   from './featured-grid/featured-grid.component';
+import { TopbarUserComponent }     from './top-bar-user/top-bar-user.component';
+
 
 @NgModule({
   declarations: [
@@ -35,14 +40,16 @@ import { RegisterFormComponent }   from './register-form/register-form.component
     HomeHero,
     TopBarComponent,
     AuthForm,
-    RegisterFormComponent
+    RegisterFormComponent,
+    FeaturedGridComponent,
+    TopbarUserComponent
   ],
   imports: [
     CommonModule, FormsModule, ReactiveFormsModule, RouterModule,
     MatToolbarModule, MatIconModule, MatButtonModule,
     MatFormFieldModule, MatInputModule, MatSelectModule, MatChipsModule,
     MatSliderModule, MatDatepickerModule, MatNativeDateModule, MatCardModule,
-    AdAtomsModule, AdMoleculesModule
+    AdAtomsModule, AdMoleculesModule,     MatMenuModule, MatDividerModule
   ],
   exports: [
     AdvancedFilters,
@@ -51,7 +58,9 @@ import { RegisterFormComponent }   from './register-form/register-form.component
     HomeHero,
     TopBarComponent,
     AuthForm,
-    RegisterFormComponent
+    RegisterFormComponent,
+    FeaturedGridComponent,
+    TopbarUserComponent
   ]
 })
 export class AdOrganismsModule {}

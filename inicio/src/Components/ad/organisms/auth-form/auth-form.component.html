@@ -1,7 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="submit()" class="login-form">
   <h2>Iniciar sesión</h2>
 
-  <!-- ✅ ahora los controles son FormControl<string> -->
   <ad-text-input
     label="Correo"
     type="email"
@@ -15,6 +14,10 @@
   </ad-password-input>
   <div class="err" *ngIf="pwdErr">{{ pwdErr }}</div>
 
-  <ad-cta-button label="Entrar" [isDisabled]="form.invalid"></ad-cta-button>
-</form>
+  <ad-cta-button
+    mat-raised-button
+    label="Entrar"
+    type="submit">
+  </ad-cta-button>
+    </form>
 

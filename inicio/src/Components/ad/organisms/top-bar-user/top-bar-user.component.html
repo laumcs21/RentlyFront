@@ -1,0 +1,46 @@
+<mat-toolbar class="topbar">
+  <a class="brand" routerLink="/user-home">
+    <mat-icon fontSet="material-symbols-outlined">home</mat-icon>
+    <span>Rently</span>
+  </a>
+
+  <div class="right">
+    <!-- Menú de usuario -->
+    <button mat-stroked-button class="ghost" [matMenuTriggerFor]="userMenu" type="button">
+      <mat-icon fontSet="material-symbols-outlined">person</mat-icon>
+      <span class="hide-sm">Cuenta</span>
+      <mat-icon fontSet="material-symbols-outlined" class="chev">expand_more</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)="action('perfil')">
+        <mat-icon fontSet="material-symbols-outlined">badge</mat-icon>
+        <span>Mi perfil</span>
+      </button>
+      <button mat-menu-item (click)="action('reservas')">
+        <mat-icon fontSet="material-symbols-outlined">calendar_month</mat-icon>
+        <span>Mis reservas</span>
+      </button>
+      <button mat-menu-item (click)="action('favoritos')">
+        <mat-icon fontSet="material-symbols-outlined">favorite</mat-icon>
+        <span>Favoritos</span>
+      </button>
+      <button mat-menu-item (click)="action('mensajes')">
+        <mat-icon fontSet="material-symbols-outlined">chat</mat-icon>
+        <span>Mensajes</span>
+      </button>
+      <mat-divider></mat-divider>
+      <!-- déjalo aunque aún no exista; es sólo un log -->
+      <button mat-menu-item *ngIf="host$ | async" (click)="action('publicar')">
+        <mat-icon fontSet="material-symbols-outlined">add_home_work</mat-icon>
+        <span>Publicar alojamiento</span>
+      </button>
+    </mat-menu>
+
+    <!-- Botón cerrar sesión -->
+    <button mat-raised-button class="cta" (click)="logout()" type="button">
+      Cerrar sesión
+    </button>
+  </div>
+</mat-toolbar>
+

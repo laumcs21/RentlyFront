@@ -32,6 +32,9 @@ import { AppDateFieldComponent }   from './app-date-field/app-date-field.compone
 import { AppGuestStepperComponent }from './app-guest-stepper/app-guest-stepper.component';
 import { NavButtonComponent }      from './nav-button/nav-button.component';
 import { AppBadgeComponent }        from './app-badge/app-badge.component';
+import { ListingCardComponent } from './listing-card/listing-card.component';
+import { UploadComponent} from './upload/upload.component';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +53,9 @@ import { AppBadgeComponent }        from './app-badge/app-badge.component';
     AppDateFieldComponent,
     AppGuestStepperComponent,
     NavButtonComponent,
-    AppBadgeComponent
+    AppBadgeComponent,
+    ListingCardComponent,
+    UploadComponent
   ],
   imports: [
     CommonModule,
@@ -83,6 +88,8 @@ import { AppBadgeComponent }        from './app-badge/app-badge.component';
     AppDateFieldComponent,
     AppGuestStepperComponent,
     NavButtonComponent,
+    ListingCardComponent,
+    UploadComponent
   ],
 })
 export class AdAtomsModule {}

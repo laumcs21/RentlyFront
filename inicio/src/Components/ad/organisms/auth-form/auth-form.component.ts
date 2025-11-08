@@ -9,7 +9,7 @@ import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms'
 })
 export class AuthForm {
   @Output() login = new EventEmitter<{ email: string; password: string }>();
-
+  loading = false;
   // ✅ Typed FormGroup: ya no es AbstractControl al acceder desde template
   form: FormGroup<{
     email: FormControl<string>;
@@ -38,8 +38,11 @@ export class AuthForm {
     return null;
   }
 
-  submit() {
-    if (this.form.invalid) { this.form.markAllAsTouched(); return; }
-    this.login.emit(this.form.getRawValue());
-  }
+// AuthForm
+submit() {
+  if (this.form.invalid) { this.form.markAllAsTouched(); return; }
+  console.log('[AuthForm] submit', this.form.getRawValue());
+  this.login.emit(this.form.getRawValue());
+}
+
 }
