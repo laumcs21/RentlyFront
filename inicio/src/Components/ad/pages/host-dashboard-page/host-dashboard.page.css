@@ -136,3 +136,16 @@
   margin-top: 8px; 
 }
 
+button.mat-mdc-button.reservas-btn {
+  background: #f1ebeb !important;
+  color: #0e0d0d !important;
+  border: #5f5d5d !important;
+  border-radius: 999px;
+  padding: 4px 14px;
+  box-shadow: none;
+}
+
+button.mat-mdc-button.reservas-btn:hover {
+  background: #222 !important;
+}
+

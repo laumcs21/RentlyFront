@@ -53,6 +53,10 @@ deleteImage(listingId: number, url: string) {
   });
 }
 
+create(body: any) {
+  return this.http.post(`${this.base}/alojamientos`, body);
+}
+
 
 
 }

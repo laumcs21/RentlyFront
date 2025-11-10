@@ -21,13 +21,16 @@ export class ReservationsService {
     return this.http.post(`${this.base}/reservas`, dto);
   }
 
-  getByHost(hostId: number, estado?: string): Observable<any> {
-    let params = new HttpParams();
-    if (estado) {
-      params = params.set('estado', estado);
-    }
-    return this.http.get(`${this.base}/anfitriones/${hostId}/reservas`, { params });
+getByHost(hostId: number, estado?: string, alojamientoId?: number) {
+  let params = new HttpParams();
+  if (estado) {
+    params = params.set('estado', estado);
   }
+  if (alojamientoId) {
+    params = params.set('alojamientoId', alojamientoId.toString());
+  }
+  return this.http.get(`${this.base}/anfitriones/${hostId}/reservas`, { params });
+}
 
   aprobar(hostId: number, reservaId: number): Observable<any> {
     return this.http.put(

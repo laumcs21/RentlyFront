@@ -16,6 +16,7 @@ import { ListingDetailPage } from './listing-detail-page/listing-detail.page';
 import {HostDashboardPage} from './host-dashboard-page/host-dashboard.page';
 import {HostEditAlojamientoPage} from './host-edit-alojamiento-page/host-edit-alojamiento.page';
 import { HostReservasPage } from './host-reservas-page/host-reservas.page';
+import { HostCreateAlojamientoPage } from './host-create-alojamiento-page/host-create-alojamiento.page';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,7 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
-  declarations: [HomePage, LoginPage, RegisterPage, UserHomePage, ListingDetailPage, HostDashboardPage, HostEditAlojamientoPage, HostReservasPage],
+  declarations: [HomePage, LoginPage, RegisterPage, UserHomePage, ListingDetailPage, HostDashboardPage, HostEditAlojamientoPage, HostReservasPage, HostCreateAlojamientoPage],
   imports: [
     CommonModule, FormsModule, ReactiveFormsModule, RouterModule,
     AdAtomsModule, AdMoleculesModule, AdOrganismsModule,  MatSnackBarModule,
@@ -32,7 +33,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     MatDividerModule
   ],
-  exports: [HomePage, LoginPage, RegisterPage, UserHomePage, ListingDetailPage, HostDashboardPage, HostEditAlojamientoPage, HostReservasPage]
+  exports: [HomePage, LoginPage, RegisterPage, UserHomePage, ListingDetailPage, HostDashboardPage, HostEditAlojamientoPage, HostReservasPage, HostCreateAlojamientoPage]
 })
 export class AdPagesModule {}
 

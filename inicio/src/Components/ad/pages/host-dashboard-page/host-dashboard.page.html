@@ -23,7 +23,7 @@
       <div class="value plus">→</div>
       <div class="hint">Ver todas</div>
     </div>
-    <div class="metric action" (click)="publicar()">
+    <div class="metric action" (click)="publicar()" routerLink="/host/alojamientos/nuevo">
       <div class="label">Nuevo</div>
       <div class="value plus">+</div>
       <div class="hint">Publicar alojamiento</div>
@@ -51,7 +51,14 @@
         >
           Editar
         </button>
-        <button mat-button class="reservas-btn" [routerLink]="['/host/reservas']">Reservas</button>
+<button
+  mat-button
+  class="reservas-btn"
+  [routerLink]="['/host/reservas']"
+  [queryParams]="{ alojamientoId: a.id }"
+>
+  Reservas
+</button>
       </div>
     </div>
   </div>

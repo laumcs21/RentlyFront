@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReservationsService } from '../../../../services/reservations.service';
 import { UsersService } from '../../../../services/users.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'ad-host-reservas-page',
@@ -14,18 +15,26 @@ export class HostReservasPage implements OnInit {
   hostId!: number;
   loading = true;
   reservas: any[] = [];
-  filtroEstado = 'TODAS'; // 'TODAS' | 'PENDIENTE' | 'CONFIRMADA' | 'RECHAZADA'
+  filtroEstado = 'TODAS';
+  alojamientoId?: number;    // 👈 nuevo
 
   constructor(
     private reservasSrv: ReservationsService,
     private usersSrv: UsersService,
-    private snack: MatSnackBar
+    private snack: MatSnackBar,
+    private route: ActivatedRoute      // 👈 nuevo
   ) {}
 
   ngOnInit(): void {
-    // saco el host actual
+    // 1. leo si vino ?alojamientoId=...
+    this.route.queryParamMap.subscribe(params => {
+      const alo = params.get('alojamientoId');
+      this.alojamientoId = alo ? Number(alo) : undefined;
+    });
+
+    // 2. saco el host actual y cargo
     this.usersSrv.getMe().subscribe(me => {
-      this.hostId = me.id; // en tu caso este es el que sí existe
+      this.hostId = me.id;
       this.cargar();
     });
   }
@@ -33,17 +42,19 @@ export class HostReservasPage implements OnInit {
   cargar(): void {
     this.loading = true;
     const estado = this.filtroEstado !== 'TODAS' ? this.filtroEstado : undefined;
-    this.reservasSrv.getByHost(this.hostId, estado).subscribe({
-      next: (resp: any) => {
-        // tu controller devuelve Page<ReservaDTO>, así que puede venir como {content:[]}
-        this.reservas = resp?.content ?? resp ?? [];
-        this.loading = false;
-      },
-      error: () => {
-        this.reservas = [];
-        this.loading = false;
-      }
-    });
+
+    this.reservasSrv
+      .getByHost(this.hostId, estado, this.alojamientoId)  // 👈 pasamos el alojamientoId
+      .subscribe({
+        next: (resp: any) => {
+          this.reservas = resp?.content ?? resp ?? [];
+          this.loading = false;
+        },
+        error: () => {
+          this.reservas = [];
+          this.loading = false;
+        }
+      });
   }
 
   cambiarFiltro(est: string) {
@@ -78,8 +89,8 @@ export class HostReservasPage implements OnInit {
     });
   }
 
-  // para mostrar solo las que se pueden aprobar
   esPendiente(r: any) {
     return r.estado === 'PENDIENTE';
   }
 }
+

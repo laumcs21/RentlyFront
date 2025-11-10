@@ -66,10 +66,10 @@ export class HostDashboardPage {
  aprobarReserva(reservaId: number, anfitrionId: number) {
   this.reservas.aprobar(anfitrionId, reservaId).subscribe({
     next: () => {
-      // volver a cargar
-      this.reservas.getByHost(anfitrionId, 'PENDIENTE').subscribe(r => {
-        this.reservasPendientes = r?.content ?? r ?? [];
-      });
+this.reservas.getByHost(anfitrionId, 'PENDIENTE').subscribe((r: any) => {
+  this.reservasPendientes = r?.content ?? r ?? [];
+});
+
     },
     error: (err) => console.error('no se pudo aprobar', err)
   });

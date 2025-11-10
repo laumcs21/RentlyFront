@@ -10,6 +10,8 @@ import { ListingDetailPage } from '../components/ad/pages/listing-detail-page/li
 import { HostDashboardPage } from '../components/ad/pages/host-dashboard-page/host-dashboard.page';
 import {HostEditAlojamientoPage} from '../components/ad/pages/host-edit-alojamiento-page/host-edit-alojamiento.page';
 import { HostReservasPage } from '../components/ad/pages/host-reservas-page/host-reservas.page';
+import { HostCreateAlojamientoPage } from '../components/ad/pages/host-create-alojamiento-page/host-create-alojamiento.page';
+
 
 const routes: Routes = [{
     path: '',
@@ -31,8 +33,7 @@ const routes: Routes = [{
   component: HostEditAlojamientoPage
 },
 { path: 'host/reservas', component: HostReservasPage },
-
-
+{ path: 'host/alojamientos/nuevo', component: HostCreateAlojamientoPage }
     ]
   },
      { path: '**', redirectTo: '' }
