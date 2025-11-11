@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "@angular/material-moment-adapter": "^20.2.9"
-  }
+  },
+  "scripts": {
+  "start": "ng serve",
+  "build": "ng build --configuration=production"
+}
 }

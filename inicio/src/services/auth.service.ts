@@ -1,7 +1,7 @@
 // src/app/core/services/auth.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../environment/environment';
+import { environment } from '../environments/environment';
 import { Observable, tap } from 'rxjs';
 import { AuthResponse, LoginDto, RegisterDto } from '../models/auth.models';
 
