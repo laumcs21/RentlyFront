@@ -4,8 +4,9 @@ WORKDIR /app
 
 COPY package.json package-lock.json ./
 
-# ✅ Instalar Angular CLI primero
-RUN npm install -g @angular/cli@18
+# ✅ Agregar esta línea
+RUN npm install -g @angular/cli
+
 RUN npm install --legacy-peer-deps
 
 COPY . .
