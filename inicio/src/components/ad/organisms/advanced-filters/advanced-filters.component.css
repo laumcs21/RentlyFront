@@ -1,0 +1,103 @@
+/* Contenedor general */
+.wrap {
+  background: #f3f7f8;
+  border: 1px solid #e7ecef;
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+/* Cabezera: título + Ver todos bien separados */
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.head h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+}
+.head small { color: #6b7785; }
+
+/* Grid general: 3 columnas (precio | servicios | aplicar) */
+.filters {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  align-items: center;
+  column-gap: 24px;
+  row-gap: 12px;
+  padding: 16px 12px;
+}
+
+/* Precio: alineado al centro verticalmente */
+.price .row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+.price h4 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: .02em;
+  opacity: .80;
+}
+.price .min, .price .max { opacity: .7; font-size: .95rem; }
+
+/* Servicios: centrados */
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;         /* Centra el título y el contenedor de chips */
+  gap: 10px;
+}
+.services h4 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: .02em;
+  opacity: .75;
+}
+
+/* Chips centrados y con wrap */
+.chips {
+  display: flex;
+  justify-content: center;     /* <<-- aquí el centrado real */
+  align-items: center;
+  gap: 10px 12px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+/* Estilo base/activo de los chips (ajústalo a tu átomo si ya lo tienes) */
+.chip {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  transition: transform .05s ease, background .2s ease, border-color .2s ease;
+}
+.chip:hover { transform: translateY(-1px); }
+.chip.active {
+  border-color: #ff7a00;
+  background: #fff7f0;
+}
+
+/* Botón Aplicar: pegado a los filtros (no volando lejos) */
+.apply {
+  display: flex;
+  justify-content: flex-end;   /* se queda cerca de los filtros */
+}
+
+/* Responsive: apila todo y centra */
+@media (max-width: 992px) {
+  .filters {
+    grid-template-columns: 1fr;
+    justify-items: center;     /* centra las 3 filas */
+  }
+  .price, .apply { width: 100%; }
+  .apply { justify-content: center; }
+}

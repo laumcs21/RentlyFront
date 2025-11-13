@@ -1,0 +1,6 @@
+/* app-guest-stepper.component.css */
+.wrap{
+  display:flex; align-items:center; gap:8px;
+  border:1px solid #e1e1e1; border-radius:12px; padding:8px 12px; background:#fff;
+}
+.v{ min-width:16px; text-align:center; }

@@ -1,0 +1,38 @@
+.w100 { width: 100%; }
+
+/* Quitamos divisor “por las dudas” y colocamos el ícono manual */
+.no-divider { position: relative; }
+
+/* Ícono posicionado donde iba el prefix */
+.no-divider .fake-prefix {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  pointer-events: none; /* no roba el foco */
+}
+
+/* Aire para el texto, ya que no hay matPrefix */
+.no-divider .mat-mdc-input-element {
+  padding-left: 44px !important; /* ajusta a tu gusto (icono 20px + margen) */
+}
+
+/* Estética del icono (opcional) */
+.no-divider .fake-prefix .mat-icon {
+  font-size: 20px;
+  line-height: 1;
+  opacity: .9;
+  /* color: var(--blue-500);  opcional */
+}
+
+/* Blindaje extra por si Material intenta dibujar algo */
+.no-divider .mat-mdc-form-field-icon-prefix,
+.no-divider .mat-mdc-form-field-text-prefix,
+.no-divider .mat-mdc-form-field-divider {
+  display: none !important;
+  border: 0 !important;
+  width: 0 !important;
+}
+

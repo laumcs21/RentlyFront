@@ -1,0 +1,16 @@
+.auth-wrap{
+  max-width: 360px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+}
+
+.title{
+  margin: 8px 0 2px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.login-form{ max-width: 560px; margin: 24px auto; }
+.err{ color:#d32f2f; font-size:12px; margin:6px 0 12px; }
+

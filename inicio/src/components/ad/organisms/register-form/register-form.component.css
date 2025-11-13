@@ -1,0 +1,30 @@
+.wrap{ max-width:620px; margin:24px auto; padding:20px; background:#fff; border:1px solid #e6e7e9; border-radius:16px; }
+.title{ margin:0 0 6px; font-size:24px; font-weight:800 }
+.sub{ margin:0 0 16px; color:#60646c }
+.hint{ margin-top:12px; color:#60646c }
+.hint a{ font-weight:600; text-decoration:none }
+
+.hint a{
+  color: #256087;
+  font-weight: 600;
+  text-decoration: none;
+}
+.hint a:hover{
+  text-decoration: underline;
+}
+.hint a:visited{
+  color: #256087;
+}
+
+/* Quita el divisor vertical entre icono y texto */
+:host ::ng-deep [data-no-prefix-divider] .mat-mdc-form-field-divider{
+  display: none !important;
+}
+
+/* (opcional) un poco de aire entre icono y texto */
+:host ::ng-deep [data-no-prefix-divider] .mat-mdc-form-field-icon-prefix .mat-icon{
+  margin-right: 8px;
+}
+
+
+

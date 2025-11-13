@@ -1,0 +1,9 @@
+<nav class="mid">
+  <!-- ad-nav-button es un átomo; debe estar exportado por AdAtomsModule -->
+  <ad-nav-button
+    *ngFor="let it of items"
+    [label]="it.label"
+    [icon]="it.icon"
+    [routerLink]="it.link">
+  </ad-nav-button>
+</nav>

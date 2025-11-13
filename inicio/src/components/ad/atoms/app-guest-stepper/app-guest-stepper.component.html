@@ -1,0 +1,11 @@
+<!-- app-guest-stepper.component.html -->
+<div class="wrap">
+  <mat-icon>group</mat-icon>
+  <button mat-icon-button (click)="dec()" [disabled]="value <= 1">
+    <mat-icon>remove</mat-icon>
+  </button>
+  <span class="v">{{ value }}</span>
+  <button mat-icon-button (click)="inc()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

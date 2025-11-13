@@ -1,0 +1,23 @@
+<ad-top-bar-user></ad-top-bar-user>
+
+<section class="wrap">
+  <h1 class="hello" *ngIf="me$ | async as me">Hola, {{ me.nombre }}</h1>
+
+  <div style="margin:10px 0 6px">
+    <ad-advanced-filters></ad-advanced-filters>
+  </div>
+
+  <!-- Grid de cards -->
+  <h2 class="section-title">Alojamientos destacados</h2>
+
+  <div class="grid" *ngIf="cards$ | async as cards; else nores">
+<ad-listing-card
+  *ngFor="let c of cards; trackBy: trackById"
+  [card]="c"
+  (open)="goToDetail($event)">
+</ad-listing-card>  </div>
+
+  <ng-template #nores>
+    <div class="empty">Sin resultados</div>
+  </ng-template>
+</section>

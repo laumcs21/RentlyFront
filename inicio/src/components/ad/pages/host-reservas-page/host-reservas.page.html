@@ -1,0 +1,69 @@
+<!-- src/components/ad/pages/host-reservas-page/host-reservas.page.html -->
+<ad-top-bar-user></ad-top-bar-user>
+
+<section class="host-reservas-wrap">
+  <h1>Reservas de mis alojamientos</h1>
+
+  <div class="filters">
+    <button
+      type="button"
+      class="f-chip"
+      [class.active]="filtroEstado === 'TODAS'"
+      (click)="cambiarFiltro('TODAS')"
+    >
+      Todas
+    </button>
+    <button
+      type="button"
+      class="f-chip"
+      [class.active]="filtroEstado === 'PENDIENTE'"
+      (click)="cambiarFiltro('PENDIENTE')"
+    >
+      Pendientes
+    </button>
+    <button
+      type="button"
+      class="f-chip"
+      [class.active]="filtroEstado === 'CONFIRMADA'"
+      (click)="cambiarFiltro('CONFIRMADA')"
+    >
+      Aprobadas
+    </button>
+    <button
+      type="button"
+      class="f-chip"
+      [class.active]="filtroEstado === 'RECHAZADA'"
+      (click)="cambiarFiltro('RECHAZADA')"
+    >
+      Rechazadas
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="loading">Cargando reservas…</div>
+
+  <div class="list" *ngIf="!loading && reservas.length; else vacio">
+    <div class="item" *ngFor="let r of reservas">
+      <div class="info">
+        <div class="title">Reserva #{{ r.id }}</div>
+        <div class="meta">
+          {{ r.fechaInicio }} → {{ r.fechaFin }}
+          · Alojamiento: {{ r.alojamientoTitulo}}
+          · Huesped: {{ r.usuarioId }}
+        </div>
+      </div>
+      <div class="estado" [class.pendiente]="r.estado === 'PENDIENTE'">
+        {{ r.estado }}
+      </div>
+      <div class="actions" *ngIf="esPendiente(r)">
+        <button
+          mat-raised-button
+          class="cta"(click)="aprobar(r)">Aprobar</button>
+        <button mat-button class="rechazar-btn" (click)="rechazar(r)">Rechazar</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #vacio>
+    <div class="empty">No hay reservas para mostrar.</div>
+  </ng-template>
+</section>

@@ -1,0 +1,151 @@
+.host-wrap{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 16px 12px 40px;
+}
+
+.head h1{
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.head .sub{
+  color: #6b7680;
+  margin-bottom: 18px;
+}
+
+.metrics{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.metric{
+  background: #fff;
+  border: 1px solid #edf0f3;
+  border-radius: 16px;
+  padding: 12px 14px 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.02);
+}
+.metric .label{
+  font-size: 13px;
+  color: #6b7680;
+  margin-bottom: 6px;
+}
+.metric .value{
+  font-size: 26px;
+  font-weight: 800;
+  color: #111;
+}
+.metric .hint{
+  font-size: 12px;
+  color: #9aa4b0;
+  margin-top: 3px;
+}
+.metric.action{
+  background: #fff7f0;
+  border-color: #ffe2c7;
+  cursor: pointer;
+}
+.metric.action .value.plus{
+  font-size: 30px;
+  line-height: 1;
+  color: #ff6a00;
+}
+
+.section-title{
+  font-size: 20px;
+  font-weight: 800;
+  margin: 12px 0 8px;
+}
+
+.list{
+  background: #fff;
+  border: 1px solid #edf0f3;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.item{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f2f4f7;
+}
+.item:last-child{ border-bottom: 0; }
+
+.thumb{
+  width: 90px;
+  height: 60px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  flex: 0 0 90px;
+}
+.info .title{
+  font-weight: 700;
+}
+.info .meta{
+  color: #6b7680;
+  font-size: 13px;
+  margin-top: 2px;
+}
+.actions{
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.empty{
+  background: #fff;
+  border: 1px dashed #d6dde4;
+  border-radius: 14px;
+  padding: 28px 18px;
+  text-align: center;
+  color: #6b7680;
+  margin-top: 10px;
+}
+
+@media (max-width: 700px){
+  .item{ flex-wrap: wrap; }
+  .actions{ width: 100%; justify-content: flex-end; }
+}
+
+.cta.mat-mdc-raised-button{
+  background:#ff6a00; color:#fff; box-shadow:none;
+}
+.cta.mat-mdc-raised-button:hover{ background:#e85f00; }
+
+/* bloque de reservas pendientes */
+.res-actions .rechazar-btn {
+  background: #fff !important;
+  color: #111 !important;
+  border: 1px solid #57626c;
+  border-radius: 999px;
+  padding: 4px 14px;
+  box-shadow: none;
+}
+
+.res-actions .rechazar-btn:hover {
+  background: #f7f7f7 !important;
+}
+
+.res-actions {
+  display: flex;
+  gap: 10px;       
+  margin-top: 8px; 
+}
+
+button.mat-mdc-button.reservas-btn {
+  background: #f1ebeb !important;
+  color: #0e0d0d !important;
+  border: #5f5d5d !important;
+  border-radius: 999px;
+  padding: 4px 14px;
+  box-shadow: none;
+}
+
+button.mat-mdc-button.reservas-btn:hover {
+  background: #222 !important;
+}
+

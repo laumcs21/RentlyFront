@@ -1,0 +1,10 @@
+<div class="row">
+  <!-- app-input es un átomo: debe estar exportado por AdAtomsModule -->
+  <ad-input
+    [label]="label"
+    [type]="type"
+    [placeholder]="placeholder">
+  </ad-input>
+
+  <div *ngIf="error" class="err">{{ error }}</div>
+</div>

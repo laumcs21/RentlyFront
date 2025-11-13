@@ -1,0 +1,25 @@
+<ad-top-bar></ad-top-bar>
+
+<ad-home-hero></ad-home-hero>
+
+<div style="margin:10px 0 6px">
+  <ad-advanced-filters></ad-advanced-filters>
+</div>
+
+<h2 class="section-title">Alojamientos destacados</h2>
+
+<ng-container *ngIf="cards$ | async as cards; else nores">
+  <div class="grid">
+    <ad-listing-card
+      *ngFor="let c of cards; trackBy: trackById"
+      [card]="c"
+      (open)="goToDetail($event)">
+    </ad-listing-card>
+  </div>
+</ng-container>
+
+<ng-template #nores>
+  <div class="empty">No se encontraron alojamientos.</div>
+</ng-template>
+
+<ad-pagination [page]="page" [pages]="3" (change)="page = $event"></ad-pagination>
