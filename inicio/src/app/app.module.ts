@@ -10,10 +10,10 @@ import { App } from './app';
 import { AppRoutingModule } from './app-routing.module';
 import { MainLayout } from './layout/main-layout.component';
 
-import { AdAtomsModule }      from '@components/ad/atoms/ad-atoms.module';
-import { AdMoleculesModule }  from '@components/ad/molecules/ad-molecules.module';
-import { AdOrganismsModule }  from '@components/ad/organisms/ad-organisms.module';
-import { AdPagesModule }      from '@components/ad/pages/ad-pages.module';
+import { AdAtomsModule } from '@atoms/ad-atoms.module';
+import { AdMoleculesModule } from '@molecules/ad-molecules.module';
+import { AdOrganismsModule } from '@organisms/ad-organisms.module';
+import { AdPagesModule } from '@pages/ad-pages.module';
 
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
